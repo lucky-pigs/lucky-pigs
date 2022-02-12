@@ -38,8 +38,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Jackpot</p>
                     <h5 class="font-weight-bolder mb-0">
-                      $1'000'000
-                      <span class="text-success text-sm font-weight-bolder">$0 in BC</span>
+                      $1M
+                      <span class="text-success text-sm font-weight-bolder" id="jackpot-eth">0 <i class="fab fa-ethereum"></i> Locked</span>
                     </h5>
                   </div>
                 </div>
@@ -58,10 +58,10 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Porks Available</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Pigs Available at <span id="pork-price">0</span><i class="fab fa-ethereum"></i></p>
                     <h5 class="font-weight-bolder mb-0">
-                      100
-                      <span class="text-success text-sm font-weight-bolder">/100</span>
+                      <span id="pork-counter" class="text-danger">100</span>
+                      <span class="text-success text-sm font-weight-bolder">/8888</span>
                     </h5>
                   </div>
                 </div>
@@ -82,8 +82,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Current Price</p>
                     <h5 class="font-weight-bolder mb-0">
-                      $1
-                      <span class="text-danger text-sm font-weight-bolder">Next: $10</span>
+                      <i class="fab fa-ethereum"></i><span id="curr-price">1</span>
+                      <span class="text-danger text-sm font-weight-bolder">Next: <i class="fab fa-ethereum"></i><span id="next-price">1</span></span>
                     </h5>
                   </div>
                 </div>
@@ -180,8 +180,8 @@
                     <i class="ni ni-bell-55 text-success text-gradient"></i>
                   </span>
                   <div class="timeline-content">
-                    <h6 class="text-secondary text-sm font-weight-bold mb-0">Porks #0 to #1999</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">ETH 0.005 - 0.02</p>
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Porks #0 to #1999</h6>
+                    <p class="text-dark font-weight-bold text-xs mt-1 mb-0"><i class="fab fa-ethereum"></i> 0.005 - 0.02</p>
                   </div>
                 </div>
                 <div class="timeline-block mb-3">
@@ -189,8 +189,8 @@
                     <i class="ni ni-html5 text-danger text-gradient"></i>
                   </span>
                   <div class="timeline-content">
-                    <h6 class="text-secondary text-sm font-weight-bold mb-0">Porks #1999 to #3999</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">ETH 0.04 - 0.08</p>
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Porks #1999 to #3999</h6>
+                    <p class="text-dark font-weight-bold text-xs mt-1 mb-0"><i class="fab fa-ethereum"></i> 0.04 - 0.08</p>
                   </div>
                 </div>
                 <div class="timeline-block mb-3">
@@ -199,7 +199,7 @@
                   </span>
                   <div class="timeline-content">
                     <h6 class="text-dark text-sm font-weight-bold mb-0">Porks #4000 to #5999</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">ETH 0.08 - 0.1</p>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><i class="fab fa-ethereum"></i> 0.08 - 0.1</p>
                   </div>
                 </div>
                 <div class="timeline-block mb-3">
@@ -208,7 +208,7 @@
                   </span>
                   <div class="timeline-content">
                     <h6 class="text-dark text-sm font-weight-bold mb-0">Porks #6000 to #8887</h6>
-                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">ETH 0.1 - 0.15</p>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0"><i class="fab fa-ethereum"></i> 0.1 - 0.15</p>
                   </div>
                 </div>
               </div>
@@ -232,14 +232,14 @@
                     </a>
                   </div>
                   <div class="card-body px-1 pb-0">
-                    <p class="text-gradient text-dark mb-2 text-sm">0.02 ETH</p>
+                    <p class="text-gradient text-dark mb-2 text-sm">0.02 <i class="fab fa-ethereum"></i></p>
                     <a href="javascript:;">
                       <h5>
                         Lucky Pig #1
                       </h5>
                     </a>
                     <div class="d-flex align-items-center justify-content-between">
-                      <button type="button" class="btn btn-outline-primary btn-sm mb-0">Open Sea</button>
+                      <button type="button" class="btn btn-outline-primary btn-sm mb-0" onclick="window.open('https://testnets.opensea.io/assets/0x9BfdB3B417F334953f94324463129cb00e6E4E87/3','_blank')">Open Sea</button>
 
                     </div>
                   </div>
@@ -253,14 +253,14 @@
                     </a>
                   </div>
                   <div class="card-body px-1 pb-0">
-                    <p class="text-gradient text-dark mb-2 text-sm">0.01 ETH</p>
+                    <p class="text-gradient text-dark mb-2 text-sm">0.01 <i class="fab fa-ethereum"></i></p>
                     <a href="javascript:;">
                       <h5>
                         Lucky Pig #2
                       </h5>
                     </a>
                     <div class="d-flex align-items-center justify-content-between">
-                      <button type="button" class="btn btn-outline-primary btn-sm mb-0">Open Sea</button>
+                      <button type="button" onclick="window.open('https://testnets.opensea.io/assets/0x9BfdB3B417F334953f94324463129cb00e6E4E87/3','_blank')" class="btn btn-outline-primary btn-sm mb-0">Open Sea</button>
 
                     </div>
                   </div>
@@ -274,14 +274,15 @@
                     </a>
                   </div>
                   <div class="card-body px-1 pb-0">
-                    <p class="text-gradient text-dark mb-2 text-sm">0.08 ETH</p>
+                    <p class="text-gradient text-dark mb-2 text-sm">0.08 <i class="fab fa-ethereum"></i>
+                    </p>
                     <a href="javascript:;">
                       <h5>
                         Lucky Pig #3
                       </h5>
                     </a>
                     <div class="d-flex align-items-center justify-content-between">
-                      <button type="button" class="btn btn-outline-primary btn-sm mb-0">Open Sea</button>
+                      <button type="button" onclick="window.open('https://testnets.opensea.io/assets/0x9BfdB3B417F334953f94324463129cb00e6E4E87/3','_blank')" class="btn btn-outline-primary btn-sm mb-0">Open Sea</button>
 
                     </div>
                   </div>
