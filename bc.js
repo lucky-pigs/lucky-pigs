@@ -88,9 +88,17 @@ async function loadStats(){
     document.getElementById('curr-price').innerHTML = current_price;
     document.getElementById('next-price').innerHTML = next_price;
 
-
-
 }
+
+function openOpensea(){
+    window.open('https://testnets.opensea.io/'+user_main_address,'_blank');
+}
+
+function openEtherscan(){
+    window.open('https://rinkeby.etherscan.io/address/'+pork_address,'_blank');
+}
+
+
 
 function findGetParameter(parameterName) {
     var result = null,
@@ -109,7 +117,7 @@ async function mintporks(amount=1){
 
     friend = findGetParameter("friend");
 
-    if (friend.length > 0){
+    if (friend != null && friend.length > 0){
         mintporkswithfriends(amount,friend);
     }
     else {
@@ -118,11 +126,27 @@ async function mintporks(amount=1){
                 from: user_main_address,
                 value: web3.utils.toWei(String(current_price * amount), "ether")
             }, function (error, transactionHash) {
-                console.log(error);
-                console.log(transactionHash);
+                console.log("ERR",error);
+                console.log("SUCC",transactionHash);
+                if(error == null){
+                    showNewPorkModal(last_pork_index,transactionHash);
+                }
             });
     }
     return false;
+}
+
+
+
+function showNewPorkModal(P_id,tx_hash){
+    document.getElementById('p_num_modal').innerHTML = P_id;
+    document.getElementById("img_modal").src="https://gateway.pinata.cloud/ipfs/QmNTeaChpaBFNdWrtBDoZAixRnTRZAuafGistucdGKj7YS/"+P_id+".png";
+    //document.getElementById("os_modal").onclick = "window.open('https://testnets.opensea.io/assets/"+pork_address+"/"+P_id+"','_blank')";
+    //document.getElementById("os_modal").onclick = "alert(\"ciao\")";
+    document.getElementById( "os_modal" ).setAttribute( "onClick", "window.open('https://testnets.opensea.io/assets/"+pork_address+"/"+P_id+"','_blank')" );
+
+    document.getElementById("p_text_modal").innerHTML = "<a href='https://rinkeby.etherscan.io/tx/"+tx_hash+"' target='_blank' >Etherscanner</a>";
+    porkmodal.style.display = "block";
 }
 
 async function mintporkswithfriends(amount=1, friend){
@@ -132,6 +156,10 @@ async function mintporkswithfriends(amount=1, friend){
         .send({from: user_main_address,value:web3.utils.toWei(String(current_price*amount), "ether")}, function(error, transactionHash){
             console.log(error);
             console.log(transactionHash);
+            if(error == null){
+                showNewPorkModal(last_pork_index,transactionHash);
+
+            }
         });
     return false;
 }
