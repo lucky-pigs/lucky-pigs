@@ -17,14 +17,14 @@
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0-rc.0/web3.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="bc.js"></script>
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+  <link id="pagestyle" href="assets/css/index.css?v=1.0.3" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -138,25 +138,30 @@
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-lg-6">
-                  <a href="" onclick="mintporks(); return false;">
+
                   <div class="d-flex flex-column h-100">
 
                     <p class="mb-1 pt-2 text-bold">Take part at the biggest Lottery!</p>
-                    <h5 class="font-weight-bolder">Open your's $1'000'000 piggy bank!</h5>
-                    <p class="mb-5">8888 piggy banks are available, only one will contain 1MILLION$. It will be yours?</p>
+                    <h5 class="font-weight-bolder">Open your $1'000'000 piggy bank!</h5>
+                    <p class="mb-5">8888 piggy banks are available, only one will contain 1MILLION$. Will it be yours?</p>
 
-                    <div class="col-6 text-end">
+                    <div class="col-12 text-end">
                       <a class="btn bg-gradient-dark mb-0" href="javascript:;" onclick="mintporks();return false;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Mint a Pig!</a>
+                      <a class="btn bg-gradient-success mb-0" href="javascript:;" onclick="openOpensea();return false;"><i class="fa-solid fa-piggy-bank"></i>&nbsp;&nbsp;See your Pigs!</a>
                     </div>
                     <br>
-                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" onclick="alert('SMARTC');">
+                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" onclick="openEtherscan();">
                       No rugg-pull! Check the Smart Contract
                       <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                     </a>
 
+                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" onclick="openEtherscan();">
+                      Reach us on twitter! <i class="fa-brands fa-twitter"></i>
+                      <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                    </a>
 
                   </div>
-                  </a>
+
                 </div>
                 <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
 
@@ -415,7 +420,7 @@
                     </div>
                     <div id="collapseSeven" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                       <div class="card-body">
-                        Sure! On Opensea or wherever you want! Please notice that selling a pig means to sell the capability ti withdraw in case of win. So, buy a Pig today and sell it once the price raises!
+                        Sure! On Opensea or wherever you want! Please notice that selling a pig means to sell the capability to withdraw in case of win. So, buy a Pig today and sell it once the price raises!
                       </div>
                     </div>
                   </li>
@@ -439,6 +444,57 @@
         </div>
       </div>
 
+      <!--- MODALS--->
+
+      <div id="newporkmodal" class="modal-pow">
+
+      <div class="modal-content-pow">
+        <div class="card">
+          <div class="card-body p-3">
+            <div class="row">
+              <div class="col-lg-6">
+
+                <div class="d-flex flex-column h-100">
+
+                  <p class="mb-1 pt-2 text-bold">Congrats!</p>
+                  <h5 class="font-weight-bolder">You minted pork #<span id ="p_num_modal"></span>!</h5>
+                  <p class="mb-5">You can check your minting request on <span id ="p_text_modal"></span>!
+                    <br> Please notice that the Pig may take up to one hour to perfectly appear on Opensea.
+                  <br> In the mean time you can mint another Pig and get closer to the milion!</p>
+
+                  <div class="col-12 text-end">
+                    <a class="btn bg-gradient-dark mb-0" href="javascript:;" onclick="mintporks();return false;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Mint another Pig!</a>
+                    <a class="btn bg-gradient-success mb-0" id="os_modal" onclick="alert('heila');return false;"><i class="fa-solid fa-piggy-bank"></i>&nbsp;&nbsp;See your Pig on Opensea!</a>
+                  </div>
+                  <br>
+
+
+                  <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;" onclick="openEtherscan();">
+                    Share your pig on twitter! <i class="fa-brands fa-twitter"></i>
+                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                  </a>
+
+                </div>
+
+              </div>
+              <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+
+                <div class="position-relative d-flex align-items-center border-radius-lg justify-content-center h-100">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img id= "img_modal" src="assets/img/illustrations/0.png" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                  <!--  <img class="w-100 position-relative z-index-2 pt-4" src="../assets/img/illustrations/0.png" alt="rocket"> -->
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+      <!--- /MODALS--->
 
       <footer class="footer pt-3  ">
         <div class="container-fluid">
@@ -470,7 +526,6 @@
 
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 
 <script>
   $(function(){
@@ -480,6 +535,13 @@
       $(this).children('span').toggleClass("fa-chevron-down fa-chevron-up");
     });
   })
+  var porkmodal = document.getElementById("newporkmodal");
+
+  window.onclick = function(event) {
+    if (event.target == porkmodal) {
+      porkmodal.style.display = "none";
+    }
+  }
 </script>
 
 </body>
