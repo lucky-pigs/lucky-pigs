@@ -8,7 +8,7 @@ if (typeof window.ethereum !== 'undefined') {
     alert("You need a browser with Metamask to partecipate!")
 }
 
-pork_address = "0x9BfdB3B417F334953f94324463129cb00e6E4E87";
+pork_address = "0xe7e593de2d319cd917ffa625e40a74f50f4c6f27";
 pork_abi = "";
 user_main_address ="";
 pork_contract = "";
@@ -40,10 +40,10 @@ async function start_app(account) {
 
 //Carico la lista degli address dei token dallo smartcontract
     chainId = await web3.eth.getChainId();
-    if (chainId == 4){
+    if (chainId == 137){
         loadLastPorks();
     } else{
-        await addNetwork(4);
+        await addNetwork(137);
         loadLastPorks();
     }
 
@@ -87,6 +87,8 @@ async function loadStats(){
     document.getElementById('pork-price').innerHTML = current_price;
     document.getElementById('curr-price').innerHTML = current_price;
     document.getElementById('next-price').innerHTML = next_price;
+    document.getElementById('luckylink').innerHTML = "lucky-pigs.github.io?friend="+user_main_address;
+
 
 }
 
@@ -95,7 +97,7 @@ function openOpensea(){
 }
 
 function openEtherscan(){
-    window.open('https://rinkeby.etherscan.io/address/'+pork_address,'_blank');
+    window.open('https://polygonscan.com/address/'+pork_address,'_blank');
 }
 
 
@@ -145,7 +147,7 @@ function showNewPorkModal(P_id,tx_hash){
     //document.getElementById("os_modal").onclick = "alert(\"ciao\")";
     document.getElementById( "os_modal" ).setAttribute( "onClick", "window.open('https://testnets.opensea.io/assets/"+pork_address+"/"+P_id+"','_blank')" );
 
-    document.getElementById("p_text_modal").innerHTML = "<a href='https://rinkeby.etherscan.io/tx/"+tx_hash+"' target='_blank' >Etherscanner</a>";
+    document.getElementById("p_text_modal").innerHTML = "<a href='https://polygonscan.com/tx/"+tx_hash+"' target='_blank' >Etherscanner</a>";
     porkmodal.style.display = "block";
 }
 
